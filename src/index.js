@@ -1,14 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
+import CartProvider from "./context/cartContext";
+import DataProvider from "./context/productData";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <CartProvider>
+        <DataProvider>
+          <App />
+        </DataProvider>
+      </CartProvider>
+    </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
